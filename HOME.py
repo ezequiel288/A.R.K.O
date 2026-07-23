@@ -47,18 +47,7 @@ class Usuario:
 
 
     def exibir_dados(self):
-        """
-        CONCEITO: ABSTRAÇÃO
-
-        Este método representa uma ação geral:
-        exibir os dados de uma pessoa.
-
-        A classe Pessoa define que toda pessoa deve conseguir
-        exibir seus dados, mas cada classe filha pode fazer isso
-        de um jeito próprio.
-
-        Aqui deixamos uma versão genérica.
-        """
+        
         return f"nome: {self.__nome} | email: {self.__email} | senha: {self.__senha} | saldo: {self.__saldo} | biblioteca: {self.__biblioteca} | amigos: {self.__amigos}"
     
 
@@ -110,18 +99,7 @@ class Jogo:
 
 
     def exibir_dados(self):
-        """
-        CONCEITO: ABSTRAÇÃO
 
-        Este método representa uma ação geral:
-        exibir os dados de uma pessoa.
-
-        A classe Pessoa define que toda pessoa deve conseguir
-        exibir seus dados, mas cada classe filha pode fazer isso
-        de um jeito próprio.
-
-        Aqui deixamos uma versão genérica.
-        """
         return f"titulo: {self.__titulo} | descricao: {self.__descricao} | preco: {self.__preco} | empresa: {self.__empresa}"
     
     "=============================================================================="
@@ -152,18 +130,7 @@ class Empresa:
 
 
     def exibir_dados(self):
-        """
-        CONCEITO: ABSTRAÇÃO
 
-        Este método representa uma ação geral:
-        exibir os dados de uma pessoa.
-
-        A classe Pessoa define que toda pessoa deve conseguir
-        exibir seus dados, mas cada classe filha pode fazer isso
-        de um jeito próprio.
-
-        Aqui deixamos uma versão genérica.
-        """
         return f"nomeEMP: {self.__nomeEMP} | games: {self.__games}"
     
     
@@ -195,18 +162,7 @@ class Biblioteca:
 
 
     def exibir_dados(self):
-        """
-        CONCEITO: ABSTRAÇÃO
 
-        Este método representa uma ação geral:
-        exibir os dados de uma pessoa.
-
-        A classe Pessoa define que toda pessoa deve conseguir
-        exibir seus dados, mas cada classe filha pode fazer isso
-        de um jeito próprio.
-
-        Aqui deixamos uma versão genérica.
-        """
         return f"donousu: {self.__donousu} | item: {self.__item}"
 
 "=============================================================================="
@@ -246,18 +202,7 @@ class Carrinho:
             print("total inválido.")
             
     def exibir_dados(self):
-        """
-        CONCEITO: ABSTRAÇÃO
-
-        Este método representa uma ação geral:
-        exibir os dados de uma pessoa.
-
-        A classe Pessoa define que toda pessoa deve conseguir
-        exibir seus dados, mas cada classe filha pode fazer isso
-        de um jeito próprio.
-
-        Aqui deixamos uma versão genérica.
-        """
+    
         return f"usuario: {self.__usuario} | jogoad: {self.__jogoad} | total: {self.__total}  "
 
 "=============================================================================="
@@ -277,18 +222,7 @@ class Jogo_Biblioteca:
             print("nome inválido.")
 
     def exibir_dados(self):
-        """
-        CONCEITO: ABSTRAÇÃO
-
-        Este método representa uma ação geral:
-        exibir os dados de uma pessoa.
-
-        A classe Pessoa define que toda pessoa deve conseguir
-        exibir seus dados, mas cada classe filha pode fazer isso
-        de um jeito próprio.
-
-        Aqui deixamos uma versão genérica.
-        """
+     
         return f"meusjogos: {self._meusjogos}"
     
 "=============================================================================="
@@ -310,16 +244,5 @@ class Avaliação:
             print("avaliação valida.")
 
     def exibir_dados(self):
-        """
-        CONCEITO: ABSTRAÇÃO
-
-        Este método representa uma ação geral:
-        exibir os dados de uma pessoa.
-
-        A classe Pessoa define que toda pessoa deve conseguir
-        exibir seus dados, mas cada classe filha pode fazer isso
-        de um jeito próprio.
-
-        Aqui deixamos uma versão genérica.
-        """
+ 
         return f"Minha avaliação : {self._avaliação}"
