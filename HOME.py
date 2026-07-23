@@ -246,3 +246,54 @@ class Avaliação:
     def exibir_dados(self):
  
         return f"Minha avaliação : {self._avaliação}"
+    
+# ──────────────────────────────────────────
+#  SUBMENU — USUÁRIOS
+# ──────────────────────────────────────────
+def menu_usuario():
+    while True:                                    
+        print("\n" + "="*40)
+        print("           MENU USUÁRIOS")
+        print("="*40)
+        print("1 - Cadastrar Usuário")
+        print("2 - Alterar cliente")
+        print("3 - Deletar cliente")
+        print("4 - Listar clientes")
+        print("0 - Voltar ao menu principal")
+        opcao = input("Escolha uma opção: ")
+
+        if   opcao == "1": print("Método Cadastrar Cliente") 
+        elif opcao == "2": print("Método Alterar Cliente") 
+        elif opcao == "3": print("Método Deletar Cliente") 
+        elif opcao == "4": print("Método Listar Cliente")
+        elif opcao == "0":
+            print("Voltando ao menu principal...")
+            break                                   
+        else:
+            print("Opção inválida. Tente novamente.")
+
+
+# ──────────────────────────────────────────
+#  MENU PRINCIPAL
+# ──────────────────────────────────────────
+def main():
+    while True:                                     
+        print("\n" + "="*40)
+        print("       SISTEMA DE GESTÃO")
+        print("="*40)
+        print("1 - Clientes")
+        print("2 - Produtos")
+        print("3 - Pedidos")
+        print("0 - Sair")
+        opcao = input("Escolha uma opção: ")
+
+        if   opcao == "1": menu_usuario()         
+        elif opcao == "0":
+            print("Encerrando o sistema. Até logo!")
+            break                                
+        else:
+            print("Opção inválida. Tente novamente.")
+
+
+if __name__ == "__main__":
+    main()
