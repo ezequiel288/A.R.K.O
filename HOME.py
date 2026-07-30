@@ -1,4 +1,5 @@
 class Usuario:
+
     def __init__(self, nome, email, senha):
         self.__nome = nome
         self.__email = email
@@ -61,6 +62,28 @@ class Usuario:
     def exibir_dados(self):
         return f"Nome: {self.__nome} | Email: {self.__email} | Senha: {self.__senha}"
 
+    def __str__(self):
+        return self.exibir_dados()
+
+    @staticmethod
+    def listar(lista_usuarios):
+        """
+        Lista todos os usuários cadastrados.
+
+        CONCEITO: POLIMORFISMO
+        --------------------------------------------------------
+        A lista pode conter objetos Usuario e suas subclasses.
+        Quando usamos print(usuario), cada objeto executa sua própria
+        versão de exibir_dados() através do método __str__.
+        """
+        print("\n=== LISTAR USUÁRIOS ===")
+
+        if len(lista_usuarios) == 0:
+            print("Nenhum usuário cadastrado.")
+            return
+
+        for usuario in lista_usuarios:
+            print(usuario)
 
 
 class Jogo:
@@ -70,7 +93,6 @@ class Jogo:
         self.__descricao = descricao
         self.__preco = preco
         self.__empresa = empresa
-
 
     @classmethod
     def cadastrar(cls):
@@ -83,10 +105,8 @@ class Jogo:
 
         return cls(titulo, descricao, preco, empresa)
 
-
     def get_titulo(self):
         return self.__titulo
-
 
     def set_titulo(self, titulo):
         if titulo.strip() != "":
@@ -94,10 +114,8 @@ class Jogo:
         else:
             print("Título inválido.")
 
-
     def get_descricao(self):
         return self.__descricao
-
 
     def set_descricao(self, descricao):
         if descricao.strip() != "":
@@ -105,10 +123,8 @@ class Jogo:
         else:
             print("Descrição inválida.")
 
-
     def get_preco(self):
         return self.__preco
-
 
     def set_preco(self, preco):
         if preco.strip() != "":
@@ -116,17 +132,14 @@ class Jogo:
         else:
             print("Preço inválido.")
 
-
     def get_empresa(self):
         return self.__empresa
-
 
     def set_empresa(self, empresa):
         if empresa.strip() != "":
             self.__empresa = empresa
         else:
             print("Empresa inválida.")
-
 
     def alterar(self):
         print("\n=== ALTERAR JOGO ===")
@@ -147,18 +160,33 @@ class Jogo:
         if nova_empresa != "":
             self.set_empresa(nova_empresa)
 
-
         print("Jogo alterado com sucesso.")
-
 
     def exibir_dados(self):
         return f"Título: {self.__titulo} | Descrição: {self.__descricao} | Preço: {self.__preco} | Empresa: {self.__empresa}"
+
+    def __str__(self):
+        return self.exibir_dados()
+
+    @staticmethod
+    def listar(lista_jogos):
+        """
+        Lista todos os jogos cadastrados.
+        """
+        print("\n=== LISTAR JOGOS ===")
+
+        if len(lista_jogos) == 0:
+            print("Nenhum jogo cadastrado.")
+            return
+
+        for jogo in lista_jogos:
+            print(jogo)
+
 
 class Biblioteca:
 
     def __init__(self, donousu):
         self.__donousu = donousu
-
 
     @classmethod
     def cadastrar(cls):
@@ -168,17 +196,14 @@ class Biblioteca:
 
         return cls(donousu)
 
-
     def get_donousu(self):
         return self.__donousu
-
 
     def set_donousu(self, donousu):
         if donousu.strip() != "":
             self.__donousu = donousu
         else:
             print("Dono inválido.")
-
 
     def alterar(self):
         print("\n=== ALTERAR BIBLIOTECA ===")
@@ -190,17 +215,31 @@ class Biblioteca:
 
         print("Biblioteca alterada com sucesso.")
 
-
     def exibir_dados(self):
         return f"Dono da Biblioteca: {self.__donousu}"
 
+    def __str__(self):
+        return self.exibir_dados()
+
+    @staticmethod
+    def listar(lista_bibliotecas):
+        """
+        Lista todas as bibliotecas cadastradas.
+        """
+        print("\n=== LISTAR BIBLIOTECAS ===")
+
+        if len(lista_bibliotecas) == 0:
+            print("Nenhuma biblioteca cadastrada.")
+            return
+
+        for biblioteca in lista_bibliotecas:
+            print(biblioteca)
 
 
 class Jogo_Biblioteca:
 
     def __init__(self, jogoBIB):
         self.__jogoBIB = jogoBIB
-
 
     @classmethod
     def cadastrar(cls):
@@ -210,17 +249,14 @@ class Jogo_Biblioteca:
 
         return cls(jogoBIB)
 
-
     def get_jogoBIB(self):
         return self.__jogoBIB
-
 
     def set_jogoBIB(self, jogoBIB):
         if jogoBIB.strip() != "":
             self.__jogoBIB = jogoBIB
         else:
             print("Jogo inválido.")
-
 
     def alterar(self):
         print("\n=== ALTERAR JOGO DA BIBLIOTECA ===")
@@ -232,10 +268,25 @@ class Jogo_Biblioteca:
 
         print("Jogo alterado com sucesso.")
 
-
     def exibir_dados(self):
         return f"Jogo na Biblioteca: {self.__jogoBIB}"
 
+    def __str__(self):
+        return self.exibir_dados()
+
+    @staticmethod
+    def listar(lista_jogos_biblioteca):
+        """
+        Lista todos os jogos da biblioteca.
+        """
+        print("\n=== LISTAR JOGOS DA BIBLIOTECA ===")
+
+        if len(lista_jogos_biblioteca) == 0:
+            print("Nenhum jogo cadastrado na biblioteca.")
+            return
+
+        for item in lista_jogos_biblioteca:
+            print(item)
 
 
 class Carrinho:
@@ -244,7 +295,6 @@ class Carrinho:
         self.__usuario = usuario
         self.__jogoad = jogoad
         self.__total = total
-
 
     @classmethod
     def cadastrar(cls):
@@ -256,10 +306,8 @@ class Carrinho:
 
         return cls(usuario, jogoad, total)
 
-
     def get_usuario(self):
         return self.__usuario
-
 
     def set_usuario(self, usuario):
         if usuario.strip() != "":
@@ -267,10 +315,8 @@ class Carrinho:
         else:
             print("Usuário inválido.")
 
-
     def get_jogoad(self):
         return self.__jogoad
-
 
     def set_jogoad(self, jogoad):
         if jogoad.strip() != "":
@@ -278,10 +324,8 @@ class Carrinho:
         else:
             print("Jogo inválido.")
 
-
     def get_total(self):
         return self.__total
-
 
     def set_total(self, total):
         if total.strip() != "":
@@ -289,31 +333,43 @@ class Carrinho:
         else:
             print("Total inválido.")
 
-
     def alterar(self):
-
         print("\n=== ALTERAR CARRINHO ===")
 
         novo_usuario = input("Novo usuário (ENTER para manter): ")
         if novo_usuario != "":
             self.set_usuario(novo_usuario)
 
-
         novo_jogo = input("Novo jogo (ENTER para manter): ")
         if novo_jogo != "":
             self.set_jogoad(novo_jogo)
-
 
         novo_total = input("Novo total (ENTER para manter): ")
         if novo_total != "":
             self.set_total(novo_total)
 
-
         print("Carrinho alterado com sucesso.")
-
 
     def exibir_dados(self):
         return f"Usuário: {self.__usuario} | Jogo: {self.__jogoad} | Total: {self.__total}"
+
+    def __str__(self):
+        return self.exibir_dados()
+
+    @staticmethod
+    def listar(lista_carrinhos):
+        """
+        Lista todos os carrinhos cadastrados.
+        """
+        print("\n=== LISTAR CARRINHOS ===")
+
+        if len(lista_carrinhos) == 0:
+            print("Nenhum carrinho cadastrado.")
+            return
+
+        for carrinho in lista_carrinhos:
+            print(carrinho)
+
 
 class Avaliacao:
 
@@ -350,6 +406,22 @@ class Avaliacao:
     def exibir_dados(self):
         return f"Minha avaliação: {self.__avaliacao}"
 
+    def __str__(self):
+        return self.exibir_dados()
+
+    @staticmethod
+    def listar(lista_avaliacoes):
+        """
+        Lista todas as avaliações cadastradas.
+        """
+        print("\n=== LISTAR AVALIAÇÕES ===")
+
+        if len(lista_avaliacoes) == 0:
+            print("Nenhuma avaliação cadastrada.")
+            return
+
+        for avaliacao in lista_avaliacoes:
+            print(avaliacao)
 
 
 class Amigo:
@@ -401,6 +473,22 @@ class Amigo:
     def exibir_dados(self):
         return f"Email do Amigo: {self.__emailamigo} | Nome do Amigo: {self.__nomeamigo}"
 
+    def __str__(self):
+        return self.exibir_dados()
+
+    @staticmethod
+    def listar(lista_amigos):
+        """
+        Lista todos os amigos cadastrados.
+        """
+        print("\n=== LISTAR AMIGOS ===")
+
+        if len(lista_amigos) == 0:
+            print("Nenhum amigo cadastrado.")
+            return
+
+        for amigo in lista_amigos:
+            print(amigo)
 
 
 class Transacao:
@@ -452,6 +540,27 @@ class Transacao:
     def exibir_dados(self):
         return f"Transação: {self.__transacao} | Jogo comprado: {self.__jogocomprado}"
 
+    def __str__(self):
+        return self.exibir_dados()
+
+    @staticmethod
+    def listar(lista_transacoes):
+        """
+        Lista todas as transações cadastradas.
+        """
+        print("\n=== LISTAR TRANSAÇÕES ===")
+
+        if len(lista_transacoes) == 0:
+            print("Nenhuma transação cadastrada.")
+            return
+
+        for transacao in lista_transacoes:
+            print(transacao)
+
+
+# ──────────────────────────────────────────
+#  LISTAS DE ARMAZENAMENTO GLOBAL
+# ──────────────────────────────────────────
 usuarios = []
 jogos = []
 bibliotecas = []
@@ -461,6 +570,10 @@ avaliacoes = []
 amigos = []
 transacoes = []
 
+
+# ──────────────────────────────────────────
+#  SUBMENU — USUÁRIOS
+# ──────────────────────────────────────────
 def menu_usuario():
     while True:
         print("\n" + "="*40)
@@ -481,7 +594,7 @@ def menu_usuario():
         elif opcao == "2":
             if len(usuarios) > 0:
                 for i, usuario in enumerate(usuarios):
-                    print(i, "-", usuario.exibir_dados())
+                    print(i, "-", usuario)
 
                 escolha = int(input("Escolha o usuário: "))
                 usuarios[escolha].alterar()
@@ -490,14 +603,8 @@ def menu_usuario():
                 print("Nenhum usuário cadastrado.")
 
         elif opcao == "3":
-            if len(usuarios) > 0:
-                print("\n=== USUÁRIOS CADASTRADOS ===")
-
-                for usuario in usuarios:
-                    print(usuario.exibir_dados())
-
-            else:
-                print("Nenhum usuário cadastrado.")
+            # Chama o método estático listar da classe Usuario
+            Usuario.listar(usuarios)
 
         elif opcao == "0":
             print("Voltando...")
@@ -507,7 +614,9 @@ def menu_usuario():
             print("Opção inválida.")
 
 
-
+# ──────────────────────────────────────────
+#  MENU PRINCIPAL
+# ──────────────────────────────────────────
 def main():
     while True:
         print("\n" + "="*40)
