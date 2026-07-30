@@ -32,6 +32,22 @@ class Usuario:
             print("senha inválido.")
         else:
             print("senha correta.")
+    def alterar(self):
+    print("\n=== ALTERAR USUÁRIO ===")
+
+    novo_nome = input("Novo nome (ENTER para manter): ").strip()
+    if novo_nome != "":
+        self.set_nome(novo_nome)
+
+    novo_email = input("Novo email (ENTER para manter): ").strip()
+    if novo_email != "":
+        self.set_email(novo_email)
+
+    nova_senha = input("Nova senha (ENTER para manter): ").strip()
+    if nova_senha != "":
+        self.set_senha(nova_senha)
+
+    print("Usuário alterado com sucesso.")
 
     def exibir_dados(self):
         
@@ -83,7 +99,26 @@ class Jogo:
             self.__empresa = empresa
         else:
             print("empresa inválido.")
+    def alterar(self):
+    print("\n=== ALTERAR JOGO ===")
 
+    novo_titulo = input("Novo título (ENTER para manter): ").strip()
+    if novo_titulo != "":
+        self.set_titulo(novo_titulo)
+
+    nova_descricao = input("Nova descrição (ENTER para manter): ").strip()
+    if nova_descricao != "":
+        self.set_descricao(nova_descricao)
+
+    novo_preco = input("Novo preço (ENTER para manter): ").strip()
+    if novo_preco != "":
+        self.set_preco(novo_preco)
+
+    nova_empresa = input("Nova empresa (ENTER para manter): ").strip()
+    if nova_empresa != "":
+        self.set_empresa(nova_empresa)
+
+    print("Jogo alterado com sucesso.")
 
     def exibir_dados(self):
 
@@ -104,7 +139,18 @@ class Biblioteca:
             self.__donousu = donousu
         else:
             print("donousu inválido.")
+    def alterar(self):
+    print("\n=== ALTERAR BIBLIOTECA ===")
 
+    novo_donousu = input("Novo dono da biblioteca (ENTER para manter): ").strip()
+    if novo_donousu != "":
+        self.set_donousu(novo_donousu)
+
+    novo_item = input("Novo item (ENTER para manter): ").strip()
+    if novo_item != "":
+        self.set_item(novo_item)
+
+    print("Biblioteca alterada com sucesso.")
 
     def exibir_dados(self):
 
@@ -126,7 +172,15 @@ class Jogo_Biblioteca:
         else:
             print("Jogo adicionado inválido.")
 
+    def alterar(self):
+    print("\n=== ALTERAR JOGO DA BIBLIOTECA ===")
 
+    novo_jogoBIB = input("Novo jogo da biblioteca (ENTER para manter): ").strip()
+
+    if novo_jogoBIB != "":
+        self.set_jogoBIB(novo_jogoBIB)
+
+    print("Jogo da biblioteca alterado com sucesso.")
     def exibir_dados(self):
 
         return f"Jogo adicionado a Biblioteca: {self.__jogoBIB}"
@@ -166,7 +220,22 @@ class Carrinho:
             self.__total = total
         else:
             print("total inválido.")
-            
+     def alterar(self):
+    print("\n=== ALTERAR CARRINHO ===")
+
+    novo_usuario = input("Novo usuário (ENTER para manter): ").strip()
+    if novo_usuario != "":
+        self.set_usuario(novo_usuario)
+
+    novo_jogoad = input("Novo jogo adicionado (ENTER para manter): ").strip()
+    if novo_jogoad != "":
+        self.set_jogoad(novo_jogoad)
+
+    novo_total = input("Novo total (ENTER para manter): ").strip()
+    if novo_total != "":
+        self.set_total(novo_total)
+
+    print("Carrinho alterado com sucesso.")      
     def exibir_dados(self):
     
         return f"usuario: {self.__usuario} | jogoad: {self.__jogoad} | total: {self.__total}  "
@@ -188,7 +257,15 @@ class Avaliação:
             print("avaliação invalida.")
         else:
             print("avaliação valida.")
+    def alterar(self):
+    print("\n=== ALTERAR AVALIAÇÃO ===")
 
+    nova_avaliação = input("Nova avaliação (ENTER para manter): ").strip()
+
+    if nova_avaliação != "":
+        self.set_avaliação(nova_avaliação)
+
+    print("Avaliação alterada com sucesso.")
     def exibir_dados(self):
  
         return f"Minha avaliação : {self._avaliação}"
@@ -218,7 +295,18 @@ class Amigo:
             self.__nomeamigo = nomeamigo
         else:
             print("Nome do amigo inválido.")
+    def alterar(self):
+    print("\n=== ALTERAR AMIGO ===")
 
+    novo_email = input("Novo email do amigo (ENTER para manter): ").strip()
+    if novo_email != "":
+        self.set_emailamigo(novo_email)
+
+    novo_nome = input("Novo nome do amigo (ENTER para manter): ").strip()
+    if novo_nome != "":
+        self.set_nomeamigo(novo_nome)
+
+    print("Amigo alterado com sucesso.")
     def exibir_dados(self):
 
         return f"Email do Amigo: {self.__emailamigo} | Nome do Amigo: {self.__nomeamigo}"
@@ -248,7 +336,18 @@ class Transação:
             self.__jogocomprado = jogocomprado
         else:
             print("Jogo a ser comprado inválido.")
+    def alterar(self):
+    print("\n=== ALTERAR TRANSAÇÃO ===")
 
+    nova_transacao = input("Nova transação (ENTER para manter): ").strip()
+    if nova_transacao != "":
+        self.set_transacao(nova_transacao)
+
+    novo_jogocomprado = input("Novo jogo comprado (ENTER para manter): ").strip()
+    if novo_jogocomprado != "":
+        self.set_jogocomprado(novo_jogocomprado)
+
+    print("Transação alterada com sucesso.")
     def exibir_dados(self):
 
         return f"Transação: {self.__transacao} | Jogo comprado: {self.__jogocomprado}"
