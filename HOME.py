@@ -603,8 +603,13 @@ def menu_usuario():
                 print("Nenhum usuário cadastrado.")
 
         elif opcao == "3":
-            # Chama o método estático listar da classe Usuario
-            Usuario.listar(usuarios)
+            print("Entrou na opção 3")
+            print("Quantidade de usuários:", len(usuarios))
+
+            for usuario in usuarios:
+                print(usuario)
+
+            input("\nPressione ENTER para voltar...")
 
         elif opcao == "0":
             print("Voltando...")
