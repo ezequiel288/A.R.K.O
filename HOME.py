@@ -85,6 +85,26 @@ class Usuario:
         for usuario in lista_usuarios:
             print(usuario)
 
+    def remover_usuario(self):
+        """
+        Remove um usuário pelo e-mail.
+        """
+
+        print("\n=== REMOVER USUÁRIO ===")
+
+        email = input("Digite o e-mail: ").strip()
+
+        usuario = self.buscar_por_email(email)
+
+        if usuario is None:
+            print ("Usuário não encontrado.")
+            return
+
+        self.__usuarios.remove(usuario)
+        self.salvar_dados()
+
+        print("Usuário removido com sucesso.")
+
 
 class Jogo:
 
@@ -182,6 +202,25 @@ class Jogo:
         for jogo in lista_jogos:
             print(jogo)
 
+    def remover_jogo(self):
+        """
+        Remove um jogo pelo título.
+        """
+
+        print("\n=== REMOVER JOGO ===")
+
+        titulo = input("Digite o título: ").strip()
+
+        jogo = self.buscar_por_titulo(titulo)
+
+        if jogo is None:
+            print("Jogo não encontrado.")
+            return
+
+        self.__jogos.remove(jogo)
+        self.salvar_dados()
+
+    print("Jogo removido com sucesso.")
 
 class Biblioteca:
 
@@ -235,6 +274,26 @@ class Biblioteca:
         for biblioteca in lista_bibliotecas:
             print(biblioteca)
 
+    def remover_biblioteca(self):
+        """
+        Remove um item da biblioteca.
+        """
+
+        print("\n=== REMOVER ITEM DA BIBLIOTECA ===")
+
+        item = input("Digite o nome do item: ").strip()
+
+        biblioteca = self.buscar_por_item(item)
+
+        if biblioteca is None:
+            print("Item não encontrado.")
+            return
+
+        self.__bibliotecas.remove(biblioteca)
+        self.salvar_dados()
+
+    print("Item removido com sucesso.")
+
 
 class Jogo_Biblioteca:
 
@@ -287,6 +346,26 @@ class Jogo_Biblioteca:
 
         for item in lista_jogos_biblioteca:
             print(item)
+
+    def remover_jogo_biblioteca(self):
+        """
+        Remove um jogo da biblioteca.
+        """
+
+        print("\n=== REMOVER JOGO ===")
+
+        nome = input("Digite o nome do jogo: ").strip()
+
+        item = self.buscar_por_nome(nome)
+
+        if item is None:
+            print("Jogo não encontrado.")
+            return
+
+        self.__itens.remove(item)
+        self.salvar_dados()
+
+    print("Jogo removido com sucesso.")
 
 
 class Carrinho:
@@ -370,6 +449,26 @@ class Carrinho:
         for carrinho in lista_carrinhos:
             print(carrinho)
 
+    def remover_carrinho(self):
+        """
+        Remove um jogo do carrinho.
+        """
+
+        print("\n=== REMOVER JOGO DO CARRINHO ===")
+
+        titulo = input("Digite o título do jogo: ").strip()
+
+        carrinho = self.buscar_por_titulo(titulo)
+
+        if carrinho is None:
+            print("Jogo não encontrado no carrinho.")
+            return
+
+        self.__carrinhos.remove(carrinho)
+        self.salvar_dados()
+
+    print("Jogo removido do carrinho com sucesso.")
+
 
 class Avaliacao:
 
@@ -422,6 +521,26 @@ class Avaliacao:
 
         for avaliacao in lista_avaliacoes:
             print(avaliacao)
+
+    def remover_avaliacao(self):
+        """
+        Remove uma avaliação.
+        """
+
+        print("\n=== REMOVER AVALIAÇÃO ===")
+
+        id_avaliacao = input("Digite o ID da avaliação: ").strip()
+
+        avaliacao = self.buscar_por_id(id_avaliacao)
+
+        if avaliacao is None:
+            print("Avaliação não encontrada.")
+            return
+
+        self.__avaliacoes.remove(avaliacao)
+        self.salvar_dados()
+
+    print("Avaliação removida com sucesso.")
 
 
 class Amigo:
@@ -490,6 +609,30 @@ class Amigo:
         for amigo in lista_amigos:
             print(amigo)
 
+    def remover_amigo(self):
+        """
+        Remove um amigo da lista de amigos do usuário.
+        """
+        print("\n=== REMOVER AMIGO ===")
+
+        self.get_emailamigo = input("Digite o email do amigo que deseja remover: ").strip()
+
+    # Presume-se que exista um método para buscar o amigo pelo nickname
+        emailamigo = self.get_emailamigo (emailamigo)
+        nomeamigo = self.get_nomeamigo (nomeamigo)
+
+        if emailamigo is None:
+            print("Amigo não encontrado na sua lista.")
+            return
+
+    # Remove o objeto 'amigo' da lista privada de amigos
+        self.__amigos.remove(emailamigo)
+    
+    # Atualiza o banco de dados ou arquivo local
+        self.salvar_dados()
+
+    print(f"Amigo '{get_emailamigo()}' removido com sucesso.")
+
 
 class Transacao:
 
@@ -556,6 +699,26 @@ class Transacao:
 
         for transacao in lista_transacoes:
             print(transacao)
+    
+    def remover_transacao(self):
+        """
+        Remove uma transação pelo ID.
+        """
+
+        print("\n=== REMOVER TRANSAÇÃO ===")
+
+        id_transacao = input("Digite o ID da transação: ").strip()
+
+        transacao = self.buscar_por_id(id_transacao)
+
+        if transacao is None:
+            print("Transação não encontrada.")
+            return
+
+        self.__transacoes.remove(transacao)
+        self.salvar_dados()
+
+    print("Transação removida com sucesso.")
 
 
 # ──────────────────────────────────────────
@@ -608,6 +771,53 @@ def menu_usuario():
 
             for usuario in usuarios:
                 print(usuario)
+
+            input("\nPressione ENTER para voltar...")
+
+        elif opcao == "0":
+            print("Voltando...")
+            break
+
+        else:
+            print("Opção inválida.")
+
+# ──────────────────────────────────────────
+#  SUBMENU — JOGOS
+# ──────────────────────────────────────────
+def menu_jogo():
+    while True:
+        print("\n" + "="*40)
+        print("           MENU JOGOS")
+        print("="*40)
+        print("1 - Cadastrar Jogos")
+        print("2 - Alterar Jogos")
+        print("3 - Listar Jogos")
+        print("0 - Voltar")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            jogo = Jogo.cadastrar()
+            jogos.append(jogo)
+            print("Jogo cadastrado com sucesso.")
+
+        elif opcao == "2":
+            if len(jogos) > 0:
+                for i, jogo in enumerate(jogos):
+                    print(i, "-", jogo)
+
+                escolha = int(input("Escolha o jogo: "))
+                jogos[escolha].alterar()
+
+            else:
+                print("Nenhum jogo cadastrado.")
+
+        elif opcao == "3":
+            print("Entrou na opção 3")
+            print("Quantidade de jogos:", len(jogos))
+
+            for jogo in jogos:
+                print(jogo)
 
             input("\nPressione ENTER para voltar...")
 
