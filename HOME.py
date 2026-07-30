@@ -93,9 +93,8 @@ class Jogo:
 
 class Biblioteca:
 
-    def __init__(self, donousu, item):
+    def __init__(self, donousu):
         self.__donousu = donousu
-        self.__item = item
      
     def get_donousu(self):
         return self.__donousu
@@ -106,19 +105,31 @@ class Biblioteca:
         else:
             print("donousu inválido.")
 
-    def get_item(self):
-        return self.__item
 
-    def set_item(self, item):
-        if item.strip() != "":
-            self.__item = item
+    def exibir_dados(self):
+
+        return f"Dono da Biblioteca: {self.__donousu}"
+
+"=============================================================================="
+
+class Jogo_Biblioteca:
+
+    def __init__(self, jogoBIB):
+        self.__jogoBIB = jogoBIB
+     
+    def get_jogoBIB(self):
+        return self.__jogoBIB
+
+    def set_jogoBIB(self, jogoBIB):
+        if jogoBIB.strip() != "":
+            self.__jogoBIB = jogoBIB
         else:
-            print("item inválido.")
+            print("Jogo adicionado inválido.")
 
 
     def exibir_dados(self):
 
-        return f"donousu: {self.__donousu} | item: {self.__item}"
+        return f"Jogo adicionado a Biblioteca: {self.__jogoBIB}"
 
 "=============================================================================="
 
