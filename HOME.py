@@ -1,11 +1,8 @@
 class Usuario:
-    def __init__(self, nome, email, senha, amigos, saldo = 0, biblioteca = 0):
+    def __init__(self, nome, email, senha):
         self.__nome = nome
         self.__email = email
-        self.__amigos = amigos
         self.__senha = senha
-        self.__saldo = 0
-        self.__biblioteca = 0
   
     def get_nome(self):
         return self.__nome
@@ -36,19 +33,9 @@ class Usuario:
         else:
             print("senha correta.")
 
-    def get_amigos(self):
-        return self.__amigos
-
-    def set_nome(self, amigos):
-        if amigos.strip() != "":
-            self.__amigos = amigos
-        else:
-            print("amigos inválido.")
-
-
     def exibir_dados(self):
         
-        return f"nome: {self.__nome} | email: {self.__email} | senha: {self.__senha} | saldo: {self.__saldo} | biblioteca: {self.__biblioteca} | amigos: {self.__amigos}"
+        return f"nome: {self.__nome} | email: {self.__email} | senha: {self.__senha}"
     
 
 "=============================================================================="
@@ -103,38 +90,6 @@ class Jogo:
         return f"titulo: {self.__titulo} | descricao: {self.__descricao} | preco: {self.__preco} | empresa: {self.__empresa}"
     
     "=============================================================================="
-
-class Empresa:
-
-    def __init__(self, nomeEMP, games):
-        self.__nomeEMP = nomeEMP
-        self.__games = games
-     
-    def get_nomeEMP(self):
-        return self.__nomeEMP
-
-    def set_nomeEMP(self, nomeEMP):
-        if nomeEMP.strip() != "":
-            self.__nomeEMP = nomeEMP
-        else:
-            print("nomeEMP inválido.")
-
-    def get_games(self):
-        return self.__games
-
-    def set_games(self, games):
-        if games.strip() != "":
-            self.__games = games
-        else:
-            print("game inválido.")
-
-
-    def exibir_dados(self):
-
-        return f"nomeEMP: {self.__nomeEMP} | games: {self.__games}"
-    
-    
-"=============================================================================="
 
 class Biblioteca:
 
@@ -207,26 +162,6 @@ class Carrinho:
 
 "=============================================================================="
 
-class Jogo_Biblioteca:
-
-    def _init_(self, meusjogos):
-        self.__meusjogos = meusjogos
-  
-    def get_meusjogos(self):
-        return self.__meusjogos
-
-    def set_meusjogos(self, meusjogos):
-        if meusjogos.strip() != "":
-            self.__meusjogos = meusjogos
-        else:
-            print("nome inválido.")
-
-    def exibir_dados(self):
-     
-        return f"meusjogos: {self._meusjogos}"
-    
-"=============================================================================="
-
 class Avaliação:
 
     def _init_(self,avaliação ):
@@ -246,6 +181,68 @@ class Avaliação:
     def exibir_dados(self):
  
         return f"Minha avaliação : {self._avaliação}"
+
+"=============================================================================="
+
+class Amigo:
+
+    def __init__(self, emailamigo, nomeamigo):
+        self.__emailamigo = emailamigo
+        self.__nomeamigo = nomeamigo
+     
+    def get_emailamigo(self):
+        return self.__emailamigo
+    
+    def set_emailamigo(self, emailamigo):
+        if emailamigo.strip() != "":
+            self.__emailamigo = emailamigo
+        else:
+            print("Email do amigo inválido.")
+
+    def get_nomeamigo(self):
+        return self.__item
+
+    def set_nomeamigo(self, nomeamigo):
+        if nomeamigo.strip() != "":
+            self.__nomeamigo = nomeamigo
+        else:
+            print("Nome do amigo inválido.")
+
+    def exibir_dados(self):
+
+        return f"Email do Amigo: {self.__emailamigo} | Nome do Amigo: {self.__nomeamigo}"
+
+"=============================================================================="
+
+class Transação:
+
+    def __init__(self, transacao, jogocomprado):
+        self.__transacao = transacao
+        self.__jogocomprado = jogocomprado
+
+    def get_transacao(self):
+        return self.__transacao
+    
+    def set_transacao(self, transacao):
+        if transacao.strip() != "":
+            self.__transacao = transacao
+        else:
+            print("Transação inválida.")
+     
+    def get_jogocomprado(self):
+        return self.__jogocomprado
+    
+    def set_jogocomprado(self, jogocomprado):
+        if jogocomprado.strip() != "":
+            self.__jogocomprado = jogocomprado
+        else:
+            print("Jogo a ser comprado inválido.")
+
+    def exibir_dados(self):
+
+        return f"Transação: {self.__transacao} | Jogo comprado: {self.__jogocomprado}"
+
+"=============================================================================="
     
 # ──────────────────────────────────────────
 #  SUBMENU — USUÁRIOS
