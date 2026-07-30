@@ -1,3 +1,5 @@
+import os
+import time
 class Usuario:
 
     def __init__(self, nome, email, senha):
@@ -104,8 +106,7 @@ class Usuario:
         self.salvar_dados()
 
         print("Usuário removido com sucesso.")
-
-
+    
 class Jogo:
 
     def __init__(self, titulo, descricao, preco, empresa):
@@ -713,6 +714,7 @@ transacoes = []
 #  SUBMENU — USUÁRIOS
 # ──────────────────────────────────────────
 def menu_usuario():
+    limpar_tela()
     while True:
         print("\n" + "="*40)
         print("           MENU USUÁRIOS")
@@ -750,7 +752,7 @@ def menu_usuario():
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "0":
-            print("Voltando...")
+            limpar_tela()
             break
 
         else:
@@ -760,6 +762,7 @@ def menu_usuario():
 #  SUBMENU — JOGOS
 # ──────────────────────────────────────────
 def menu_jogo():
+    limpar_tela()
     while True:
         print("\n" + "="*40)
         print("           MENU JOGOS")
@@ -797,7 +800,7 @@ def menu_jogo():
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "0":
-            print("Voltando...")
+            limpar_tela()
             break
 
         else:
@@ -807,6 +810,7 @@ def menu_jogo():
 #  SUBMENU — BIBLIOTECA
 # ──────────────────────────────────────────
 def menu_biblioteca():
+    limpar_tela()
     while True:
         print("\n" + "="*40)
         print("           MENU BIBLIOTECA")
@@ -844,7 +848,7 @@ def menu_biblioteca():
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "0":
-            print("Voltando...")
+            limpar_tela()
             break
 
         else:
@@ -881,7 +885,7 @@ def menu_biblioteca():
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "0":
-            print("Voltando...")
+            limpar_tela()
             break
 
         else:
@@ -891,6 +895,7 @@ def menu_biblioteca():
 #  SUBMENU — CARRINHO
 # ──────────────────────────────────────────
 def menu_carrinho():
+    limpar_tela()
     while True:
         print("\n" + "="*40)
         print("           MENU CARRINHO")
@@ -929,7 +934,7 @@ def menu_carrinho():
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "0":
-            print("Voltando...")
+            limpar_tela()
             break
 
         else:
@@ -966,7 +971,7 @@ def menu_carrinho():
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "0":
-            print("Voltando...")
+            limpar_tela()
             break
 
         else:
@@ -977,6 +982,7 @@ def menu_carrinho():
 #  SUBMENU — AVALIAÇÕES
 # ──────────────────────────────────────────
 def menu_avaliacoes():
+    limpar_tela()
     while True:
         print("\n" + "="*40)
         print("           MENU AVALIAÇÕES")
@@ -1014,7 +1020,7 @@ def menu_avaliacoes():
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "0":
-            print("Voltando...")
+            limpar_tela()
             break
 
         else:
@@ -1024,6 +1030,7 @@ def menu_avaliacoes():
 #  SUBMENU — AMIGOS
 # ──────────────────────────────────────────
 def menu_amigos():
+    limpar_tela()
     while True:
         print("\n" + "="*40)
         print("           MENU AMIGOS")
@@ -1061,7 +1068,7 @@ def menu_amigos():
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "0":
-            print("Voltando...")
+            limpar_tela()
             break
 
         else:
@@ -1071,6 +1078,7 @@ def menu_amigos():
 #  SUBMENU — TRANSAÇÕES
 # ──────────────────────────────────────────
 def menu_transacoes():
+    limpar_tela()
     while True:
         print("\n" + "="*40)
         print("           MENU TRANSAÇÕES")
@@ -1108,21 +1116,30 @@ def menu_transacoes():
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "0":
-            print("Voltando...")
+            limpar_tela()
             break
 
         else:
             print("Opção inválida.")
 
 
+def limpar_tela():
+# Verifica o sistema operacional ('nt' é o Windows)
+    if os.name == 'nt':
+            os.system('cls')
+    else:
+            os.system('clear')
+    
+
 # ──────────────────────────────────────────
 #  MENU PRINCIPAL
 # ──────────────────────────────────────────
 def main():
+    limpar_tela()
     while True:
-        print("\n" + "="*40)
+        print("\n" + "="*50)
         print("       SISTEMA DE DISTRIBUIÇÃO DE JOGOS A.R.K.O")
-        print("="*40)
+        print("="*50)
 
         print("1 - Usuários")
         print("2 - Jogos")
@@ -1157,7 +1174,13 @@ def main():
             menu_transacoes()
 
         elif opcao == "0":
-            print("Encerrando o sistema...")
+            limpar_tela()
+            print("PROGRAMA FINALIZANDO. POR FAVOR, AGUARDE", end="")
+            for i in range(3):
+                print(".", end="", flush=True)
+                time.sleep(1)
+            limpar_tela()
+            print("PROGRAMA FINALIZADO COM SUCESSO!!!\n")
             break
 
         else:
